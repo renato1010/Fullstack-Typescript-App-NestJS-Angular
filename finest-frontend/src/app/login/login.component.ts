@@ -4,16 +4,13 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   @Input() email: string;
   @Input() password: string;
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {
-  }
+  constructor(private authService: AuthService) {}
 
   onSubmit() {
     this.authService.login({
@@ -21,5 +18,4 @@ export class LoginComponent implements OnInit {
       password: this.password,
     });
   }
-
 }

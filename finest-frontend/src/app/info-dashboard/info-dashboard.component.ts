@@ -4,7 +4,7 @@ import { DashboardService } from '../services/dashboard.service';
 @Component({
   selector: 'app-info-dashboard',
   templateUrl: './info-dashboard.component.html',
-  styleUrls: ['./info-dashboard.component.scss']
+  styleUrls: ['./info-dashboard.component.scss'],
 })
 export class InfoDashboardComponent implements OnInit {
   @Input() cSymbol: string;
@@ -14,9 +14,6 @@ export class InfoDashboardComponent implements OnInit {
   constructor(
     private readonly dashboardService: DashboardService,
   ) { }
-
-  ngOnInit() {
-  }
 
   async onSubmit() {
     // clean state

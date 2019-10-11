@@ -3,24 +3,30 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DashboardService {
   infoUrl = `${environment.SERVER_URL}/finest/v1/info`;
   newsUrl = `${environment.SERVER_URL}/finest/v1/news`;
   stockUrl = `${environment.SERVER_URL}/finest/v1/stock`;
 
-  constructor(private readonly httpClient: HttpClient) { }
+  constructor(private readonly httpClient: HttpClient) {}
 
   async getInfo(symbol: string) {
-    return await this.httpClient.get(`${this.infoUrl}?symbol=${symbol}`).toPromise();
+    return await this.httpClient
+      .get(`${this.infoUrl}?symbol=${symbol}`)
+      .toPromise();
   }
 
   async getNews(symbol: string) {
-    return await this.httpClient.get(`${this.newsUrl}?symbol=${symbol}`).toPromise();
+    return await this.httpClient
+      .get(`${this.newsUrl}?symbol=${symbol}`)
+      .toPromise();
   }
 
   async getStock(symbol: string) {
-    return await this.httpClient.get(`${this.stockUrl}?symbol=${symbol}`).toPromise();
+    return await this.httpClient
+      .get(`${this.stockUrl}?symbol=${symbol}`)
+      .toPromise();
   }
 }

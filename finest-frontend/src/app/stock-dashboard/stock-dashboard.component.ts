@@ -13,8 +13,6 @@ export class StockDashboardComponent implements OnInit {
 
   constructor(private readonly dashboardService: DashboardService) {}
 
-  ngOnInit() {}
-
   async onSubmit() {
     // clean state
     this.companyStock = null;

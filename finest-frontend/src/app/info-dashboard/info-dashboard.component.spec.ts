@@ -8,7 +8,7 @@ describe('InfoDashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoDashboardComponent ]
+      declarations: [ InfoDashboardComponent ],
     })
     .compileComponents();
   }));

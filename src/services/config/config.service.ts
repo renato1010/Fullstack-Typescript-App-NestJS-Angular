@@ -18,7 +18,6 @@ export class ConfigService {
         PORT: process.env.PORT,
       };
     } else {
-      console.log('env-path: ', join(__dirname, '../../../.env'));
       this.envConfig = dotenv.parse(
         fs.readFileSync('/home/renato/TypescriptDev/finest-server/.env'),
       );

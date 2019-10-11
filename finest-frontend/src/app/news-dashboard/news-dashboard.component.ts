@@ -4,20 +4,14 @@ import { DashboardService } from '../services/dashboard.service';
 @Component({
   selector: 'app-news-dashboard',
   templateUrl: './news-dashboard.component.html',
-  styleUrls: ['./news-dashboard.component.css']
+  styleUrls: ['./news-dashboard.component.css'],
 })
 export class NewsDashboardComponent implements OnInit {
   @Input() cSymbol: string;
   protected companyNews;
   protected noData: boolean;
 
-
-  constructor(
-    private readonly dashboardService: DashboardService,
-  ) { }
-
-  ngOnInit() {
-  }
+  constructor(private readonly dashboardService: DashboardService) {}
 
   async onSubmit() {
     // clean state
@@ -30,5 +24,4 @@ export class NewsDashboardComponent implements OnInit {
       this.noData = true;
     }
   }
-
 }

@@ -14,8 +14,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {}
-
   onSubmit() {
     this.authService.register({
       name: this.username,

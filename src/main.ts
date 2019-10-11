@@ -11,8 +11,9 @@ async function bootstrap() {
   app.use(helmet());
   // define a global validation pipe
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
-  // tslint:disable-next-line:no-console
-  console.log('envPort: ', new ConfigService().get('PORT'));
-  await app.listen(new ConfigService().get('PORT'));
+  /* tslint:disable */
+  await app
+    .listen(new ConfigService().get('PORT'))
+    .then(() => console.log('envPort: ', new ConfigService().get('PORT')));
 }
 bootstrap();
