@@ -1,26 +1,34 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DashboardService } from '../services/dashboard.service';
 
 @Component({
   selector: 'app-info-dashboard',
   templateUrl: './info-dashboard.component.html',
-  styleUrls: ['./info-dashboard.component.scss'],
+  styleUrls: ['./info-dashboard.component.scss']
 })
 export class InfoDashboardComponent implements OnInit {
-  pSymbol: string;
-  companyInfo: string;
-  @Input()
-  set cSymbol(symbol: string) {
-    this.pSymbol = symbol;
-  }
-  get cSymbol(): string {
-    return this.pSymbol;
+  @Input() cSymbol: string;
+  protected companyInfo;
+  protected noData: boolean;
+
+  constructor(
+    private readonly dashboardService: DashboardService,
+  ) { }
+
+  ngOnInit() {
   }
 
-  constructor() {}
+  async onSubmit() {
+    // clean state
+    this.companyInfo = null;
+    this.noData = false;
 
-  ngOnInit() {}
-
-  onSubmit() {
-    this.companyInfo = `Here is data for ${this.cSymbol}`;
+    try {
+      const cInfo = await this.dashboardService.getInfo(this.cSymbol);
+      this.companyInfo = Object.entries(cInfo);
+    } catch {
+      this.noData = true;
+    }
   }
+
 }

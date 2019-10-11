@@ -3,6 +3,7 @@ import { ValidationPipe } from '@nestjs/common';
 import * as helmet from 'helmet';
 import { from } from 'rxjs';
 import { AppModule } from './app.module';
+import { ConfigService } from './services/config/config.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -10,6 +11,8 @@ async function bootstrap() {
   app.use(helmet());
   // define a global validation pipe
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
-  await app.listen(process.env.PORT);
+  // tslint:disable-next-line:no-console
+  console.log('envPort: ', new ConfigService().get('PORT'));
+  await app.listen(new ConfigService().get('PORT'));
 }
 bootstrap();
