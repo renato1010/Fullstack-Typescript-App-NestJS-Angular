@@ -19,17 +19,17 @@ const routes: Routes = [
   {
     path: 'info',
     component: InfoDashboardComponent,
-    // canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: 'news',
     component: NewsDashboardComponent,
-    // canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: 'stock',
     component: StockDashboardComponent,
-    // canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: '',

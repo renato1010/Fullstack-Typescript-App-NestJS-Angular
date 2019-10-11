@@ -12,13 +12,13 @@ interface User {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private loginUrl = `${environment.SERVER_URL}/auth/login`;
   private registerUrl = `${environment.SERVER_URL}/auth/register`;
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   async login(userData: User) {
     interface LoggedUser {
@@ -29,7 +29,9 @@ export class AuthService {
     }
 
     try {
-      const loggedUser = await this.httpClient.post<LoggedUser>(this.loginUrl, userData).toPromise();
+      const loggedUser = await this.httpClient
+        .post<LoggedUser>(this.loginUrl, userData)
+        .toPromise();
 
       if (loggedUser && loggedUser.expiresIn) {
         this.setSession(loggedUser);
@@ -42,7 +44,9 @@ export class AuthService {
 
   async register(userData: User) {
     type createdUser = User & { id: number };
-    const user = await this.httpClient.post<createdUser>(this.registerUrl, userData).toPromise();
+    const user = await this.httpClient
+      .post<createdUser>(this.registerUrl, userData)
+      .toPromise();
 
     if (user && user.id) {
       this.login(user);
@@ -74,5 +78,4 @@ export class AuthService {
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }
-
 }
