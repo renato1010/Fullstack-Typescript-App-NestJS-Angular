@@ -6,10 +6,10 @@ import { DashboardService } from '../services/dashboard.service';
   templateUrl: './stock-dashboard.component.html',
   styleUrls: ['./stock-dashboard.component.css'],
 })
-export class StockDashboardComponent implements OnInit {
+export class StockDashboardComponent {
   @Input() cSymbol: string;
-  protected companyStock;
-  protected noData: boolean;
+  companyStock;
+  noData: boolean;
 
   constructor(private readonly dashboardService: DashboardService) {}
 

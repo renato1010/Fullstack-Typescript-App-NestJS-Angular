@@ -6,14 +6,12 @@ import { DashboardService } from '../services/dashboard.service';
   templateUrl: './info-dashboard.component.html',
   styleUrls: ['./info-dashboard.component.scss'],
 })
-export class InfoDashboardComponent implements OnInit {
+export class InfoDashboardComponent {
   @Input() cSymbol: string;
-  protected companyInfo;
-  protected noData: boolean;
+  companyInfo;
+  noData: boolean;
 
-  constructor(
-    private readonly dashboardService: DashboardService,
-  ) { }
+  constructor(private readonly dashboardService: DashboardService) {}
 
   async onSubmit() {
     // clean state
@@ -27,5 +25,4 @@ export class InfoDashboardComponent implements OnInit {
       this.noData = true;
     }
   }
-
 }

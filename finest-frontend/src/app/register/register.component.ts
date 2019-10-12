@@ -6,7 +6,7 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   @Input() username: string;
   @Input() email: string;
   @Input() password: string;
