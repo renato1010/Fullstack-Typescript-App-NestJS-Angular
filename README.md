@@ -59,6 +59,23 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+## Run also the Frontend Angular(only applicable to this App)
+
+The Frontend is inside of the folder that also contains the NestJS app. So after starting (running) the backend
+App (API Service) you can run the Frontend like this:
+
+```bash
+# move to front end folder
+$ cd finest-frontend/
+
+# start Angular in Dev mode
+
+$ ng serve
+```
+
+## Credits (only applicable to this App)
+
+This App is a following of this course: [Hands-On Web Development with Typescript and Nest.js](https://www.packtpub.com/cloud-networking/hands-on-web-development-with-typescript-and-nest-js-video) from Packt publishing
 
 ## Support
 
